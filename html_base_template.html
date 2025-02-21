@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electron App Launcher</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="content"></div>
+    </body>
+
+    <script>
+        function loadContent() {
+            fetch('index.html')  // Load the content of index.html
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;  // Inject it into the content div
+                    eval(document.getElementById('content').querySelector('script').innerText);  // Run the script
+                })
+                .catch(err => {
+                    console.error('Error loading content:', err);
+                });
+        }
+
+        loadContent();
+    </script>
+</html>
