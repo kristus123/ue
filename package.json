@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --delay 5 --watch . --ext html,css,js --exec electron ."
+    "start": "nodemon --delay 1 --watch . --ext html,css,js --exec electron .",
+    "s": "electron ."
   },
   "devDependencies": {
     "electron": "^34.2.0",

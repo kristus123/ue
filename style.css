@@ -1,22 +1,13 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  display: flex;
+  padding: 20px;
+  display: block;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 20vh;
   background-color: #f5f5f5;
   overflow: hidden; /* Hide scrollbar */
-}
-
-.app-launcher {
-  width: 100%;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  box-sizing: border-box;
 }
 
 input[type="text"] {
@@ -25,8 +16,16 @@ input[type="text"] {
   margin-bottom: 20px;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 24px;
   box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+textarea {
+  font-size: 32px;
+  font-weight: 600;
+  resize: none;
+  width: 100%;
 }
 
 ul {
@@ -35,16 +34,12 @@ ul {
   margin: 0;
 }
 
-
 li {
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
   border-radius: 4px;
-  transition: background-color 0.2s;
 }
-
-
 
 li:hover {
   background-color: #f1f1f1;
@@ -58,4 +53,3 @@ li.no-result {
   color: #999;
   font-style: italic;
 }
-*/

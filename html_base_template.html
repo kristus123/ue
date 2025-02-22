@@ -5,24 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Electron App Launcher</title>
         <link rel="stylesheet" href="style.css">
+        <script src="html_elements.js"></script>
     </head>
     <body>
-        <div id="content"></div>
-    </body>
+        <div id="body"></div>
+    </body> 
+
+    <!-- dynamic script imports -->
+	<script src="js/active/Active.js"></script>
+	<script src="js/active/global_search/GlobalSearch.js"></script>
+	<script src="js/active/global_search/SearchEngine.js"></script>
+	<script src="js/active/GoogleSearch.js"></script>
+	<script src="js/active/SendEmail.js"></script>
+	<script src="js/css_in_js.js"></script>
+	<script src="js/electron_methods.js"></script>
+	<script src="js/Global.js"></script>
+	<script src="js/html_elements.js"></script>
+	<script src="js/improved_js_methods.js"></script>
+	<script src="js/TextField.js"></script>
+	<!-- dynamic script imports -->
 
     <script>
-        function loadContent() {
-            fetch('index.html')  // Load the content of index.html
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;  // Inject it into the content div
-                    eval(document.getElementById('content').querySelector('script').innerText);  // Run the script
-                })
-                .catch(err => {
-                    console.error('Error loading content:', err);
-                });
-        }
-
-        loadContent();
+        loadContentIn(id("body"), "index.html");
     </script>
 </html>

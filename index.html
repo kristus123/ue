@@ -1,80 +1,25 @@
-
-<div class="app-launcher">
-  <input type="text" id="searchInput" placeholder="Search for apps..." tabindex="-1" />
-  <ul id="appList">
-  </ul>
-</div>
+<div id="content"></div>
+<div id="subcontent"></div>
+<ul id="list"></ul>
 
 <script>
-  const searchInput = document.getElementById('searchInput');
-  const appList = document.getElementById('appList');
+  Active.reset = () => {
+      removeContentIn(id("list"))
+      removeContentIn(id("subcontent"))
+      Global.enter = () => {}
 
-  console.log(searchInput)
-
-  // Example list of placeholder apps
-  const apps = ['App 1', 'App 2', 'App 3'];
-
-  // Populate the sslist with apps
-  function populateList(query = '') {
-    // Filter apps based on the search query
-    const filteredApps = apps.filter(app => app.toLowerCase().includes(query.toLowerCase()));
-
-    // Clear previous results
-    appList.innerHTML = '';
-
-    // Display matching apps
-    filteredApps.forEach((app, index) => {
-      const li = document.createElement('li');
-      li.textContent = app;
-      li.dataset.index = index;
-      li.setAttribute('tabindex', 0); // Make list items focusable
-      appList.appendChild(li);
-
-      // Event listener for Enter key press (on each li)
-      li.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          searchInput.value = ""
-          console.log(`${app} executed`); // Log app execution
-          window.electronAPI.hideWindow(app); // This will trigger the hide in main.js
-        } else if (e.key === 'Tab') {
-          e.preventDefault();  // Prevent the default tab behavior
-          const nextApp = li.nextElementSibling || appList.firstElementChild;
-          if (nextApp) nextApp.focus();
-        }
-      });
-    });
-
-    // If no apps match, show a no results message
-    if (filteredApps.length === 0) {
-      const li = document.createElement('li');
-      li.textContent = 'No results found';
-      appList.appendChild(li);
-    }
-
-    // Focus the first item after populating the list
-    const firstApp = appList.querySelector('li');
-    if (firstApp) {
-      firstApp.focus();
-    }
+      TextField.enableAutoFocus()
+      TextField.disableTabbing()
   }
 
-  // Initially populate the list
-  populateList();
+  Active.choices = [
+    GoogleSearch,
+    SendEmail,
+    GlobalSearch, // has to be last
+]
 
-  // Search for apps as the user types
-  searchInput.addEventListener('input', () => {
-
-    const query = searchInput.value;
-    populateList(query);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Tab' || event.key === 'Enter') {
-        return;  // Do nothing if Tab or Enter is pressed
-    }
-    else {
-      searchInput.focus();
-      
-    }      
-  });
+  TextField.alwaysFocused(id("content"), "Search...", text => {
+    Active.choose(text)
+    Active.onTextChange(text)
+  })
 </script>
