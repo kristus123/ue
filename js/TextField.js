@@ -22,6 +22,10 @@ class TextField {
         return x           
     }
 
+    static get text() {
+        return id("always-focused-input").value
+    }
+
     static clear() {
         id("always-focused-input").value = ""
     }

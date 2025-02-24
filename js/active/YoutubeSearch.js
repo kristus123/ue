@@ -12,7 +12,7 @@ class YoutubeSearch {
       ]))
 
       Global.enter = () => {
-        openChrome("https://www.youtube.com/results?search_query=" + encodeURIComponent(text))
+        openChrome("https://www.youtube.com/results?search_query=" + encodeURIComponent(TextField.text))
         removeContentIn(id("subcontent"))
         Global.enter = () => {}
         TextField.clear()
