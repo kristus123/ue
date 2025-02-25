@@ -32,6 +32,6 @@ let data = fs.readFileSync(index, 'utf8');
 
 data = data.replace(
     /<!-- dynamic script imports -->[\s\S]*?<!-- dynamic script imports -->/g,
-    `<!-- dynamic script imports -->\n${jsFiles}\n\t<!-- dynamic script imports -->`);
+    `<!-- dynamic script imports -->\n${jsFiles}\n\t\t\t<!-- dynamic script imports -->`);
 
 fs.writeFileSync(index, data, 'utf8');

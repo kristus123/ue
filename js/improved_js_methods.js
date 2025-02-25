@@ -7,11 +7,11 @@ function startsWith(character, str) {
     if (typeof str !== 'string') {
         return false
     }
-    if (str.length === 0) {
+    else if (str.length === 0) {
         return false
     }
     else {
-        return str[0].toLowerCase() === character;
+        return str[0].toLowerCase() == character;
     }
 }
 

@@ -1,23 +1,26 @@
+<div id="mainInput"></div>
 <div id="content"></div>
 <div id="subcontent"></div>
 
 <script>
   Active.reset = () => {
-      removeContentIn(id("subcontent"))
-      Global.enter = () => {}
+    removeContentIn(id("content"))
+    removeContentIn(id("subcontent"))
+    Global.enter = () => {}
 
-      TextField.enableAutoFocus()
-      TextField.disableTabbing()
+    TextField.enableAutoFocus()
+    TextField.disableTabbing()
   }
 
   Active.choices = [
-    GoogleSearch,
-    YoutubeSearch,
-    SendEmail,
-    GlobalSearch, // has to be last
+    new WebsiteSearch("y", q => `youtube.com/results?search_query=${q}`),
+    new WebsiteSearch("g", q => `google.no?q=${q}`),
+    new WebsiteSearch("p", q => `chatgpt.com?q=${q}`),
+    GlobalSearch,
+    LandingPage, // has to be last
   ]
 
-  TextField.alwaysFocused(id("content"), "Search...", text => {
+  TextField.alwaysFocused(id("mainInput"), "Search...", text => {
     Active.choose(text)
     Active.onTextChange(text)
   })

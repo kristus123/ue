@@ -17,7 +17,11 @@ function runCommand(command) {
 }
 
 init_electron.init((globalShortcut, ipcMain, win) => {
-  globalShortcut.register('z', () => {
+  globalShortcut.register('Escape', () => {
+    win.hide();
+  });
+
+  globalShortcut.register('Alt+Space', () => {
     if (win.isVisible()) {
       win.focus()
     } else {

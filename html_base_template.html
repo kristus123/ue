@@ -5,26 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Electron App Launcher</title>
         <link rel="stylesheet" href="style.css">
-        <script src="html_elements.js"></script>
     </head>
-    <body>
-        <div id="body"></div>
-    </body> 
 
-    <!-- dynamic script imports -->
+    <body>
+		<div>
+			<!-- dynamic script imports -->
 	<script src="js/active/Active.js"></script>
-	<script src="js/active/global_search/GlobalSearch.js"></script>
-	<script src="js/active/global_search/SearchEngine.js"></script>
-	<script src="js/active/GoogleSearch.js"></script>
+	<script src="js/active/GlobalSearch.js"></script>
+	<script src="js/active/LandingPage.js"></script>
 	<script src="js/active/SendEmail.js"></script>
-	<script src="js/active/YoutubeSearch.js"></script>
+	<script src="js/active/WebsiteSearch.js"></script>
 	<script src="js/css_in_js.js"></script>
 	<script src="js/electron_methods.js"></script>
 	<script src="js/Global.js"></script>
 	<script src="js/html_elements.js"></script>
 	<script src="js/improved_js_methods.js"></script>
 	<script src="js/TextField.js"></script>
-	<!-- dynamic script imports -->
+			<!-- dynamic script imports -->
+		</div>
+		
+        <div id="body"></div>
+    </body> 
 
     <script>
         loadContentIn(id("body"), "index.html");

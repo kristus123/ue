@@ -20,11 +20,11 @@ function init(run) {
         // Disable menu bar
         win.setMenu(null);
       
-        win.webContents.openDevTools({ mode: 'detach' });
+        //win.webContents.openDevTools({ mode: 'detach' });
 
       
         win.loadFile('html_base_template.html');
-        win.setSkipTaskbar(true); // enable later
+        win.setSkipTaskbar(true);
       
         win.once('ready-to-show', () => {
           win.show();
@@ -38,7 +38,11 @@ function init(run) {
         win.show()
       }
       
-      app.whenReady().then(createWindow);
+        
+        app.whenReady().then(() => {
+          createWindow()
+          win.hide();
+        });
 
       // Quit the app when all windows are closed (for macOS compatibility)
       app.on('window-all-closed', () => {

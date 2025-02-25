@@ -12,33 +12,41 @@ class SendEmail {
 
         const subject = addId("subject", input("Subject"))
 
-      id('subcontent').appendChild(div([
-        h1("Write your message"),
-        p("subject"),
-        subject,
-        p("body"),
-        textarea("body"),
-        grey(p("press 'Enter' to send")),
-      ]))
+          subject.addEventListener('keydown', e => {
+            if (subject.value.length === 0 && e.key === 'Backspace') {
+                id("always-focused-input").value = ""
+                Active.choose("")
+            }
+          })
+          
+          const openBodyEditor = e => {
+            if (e.key === 'Tab') {
+              id('subcontent').appendChild(div([
+                textarea("body"),
+              ]))
+              subject.removeEventListener('keydown', openBodyEditor)
+            }
+          }
 
-      subject.focus()
-      subject.addEventListener('keydown', e => {
-        
-        if (subject.value.length === 0 && e.key === 'Backspace') {
-            id("always-focused-input").value = ""
-            Active.choose("")
-        }
-      })
+          subject.addEventListener('keydown', openBodyEditor)
 
-      Global.enter = () => {
-        removeContentIn(id("subcontent"))
-        Global.enter = () => {}
-        TextField.clear()
-      }
+        id('subcontent').appendChild(fragment([
+          h1("Write your message"),
+          p("subject and body"),
+          subject,
+          grey(p("press 'Tab' to add body, or press 'Enter' to send")),
+        ]))  
+
+          requestAnimationFrame(() => {
+            subject.focus()
+          })
     }
 
     static onTextChange(text) {
 
+    }
+
+    static onEnter() {
     }
 
   }

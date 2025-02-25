@@ -44,7 +44,9 @@ function li(name, onEnter) {
     li.textContent = name;
     li.setAttribute('tabindex', 0); // Make list items focusable
 
-    Global.enter = onEnter
+    li.addEventListener("focus", () => {
+        GlobalSearch.onEnter = onEnter // hack, as li is only used by globalsearch
+    })
 
     return li
 }
@@ -65,6 +67,16 @@ function textarea(placeholder) {
     e.type = "text"
     e.tabIndex = 0
     e.placeholder = placeholder
+
+    return e
+}
+
+function fragment(children=[]) {
+    const e = document.createDocumentFragment()
+
+    for (const c of children) {
+        e.appendChild(c)        
+    }
 
     return e
 }
