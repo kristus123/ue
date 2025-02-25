@@ -17,6 +17,12 @@ function stopTask() {
   }, 10);
 }
 
+function SendMail(to, title, body) {
+  setTimeout(() => {
+    window.electronAPI.sendMail(to, title, body);             
+  }, 10);
+}
+
 
 
 
