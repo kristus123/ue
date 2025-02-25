@@ -26,7 +26,7 @@ const jsFiles = getJsFiles(jsPath)
     .map(file => `\t<script src="${file}"></script>`)
     .join('\n') 
 
-const index = path.join(__dirname, 'html_base_template.html');
+const index = path.join(__dirname, 'base_template.html');
 
 let data = fs.readFileSync(index, 'utf8');
 

@@ -1,9 +1,6 @@
-<div id="mainInput"></div>
+<div id="input"></div>
 <div id="content"></div>
 <div id="subcontent"></div>
-
-<button onclick="startTask()">start</button>
-<button onclick="stopTask()">stop</button>
 
 <script>
   Active.reset = () => {
@@ -13,6 +10,7 @@
 
     TextField.enableAutoFocus()
     TextField.disableTabbing()
+	TextField.show()
   }
 
   Active.choices = [
@@ -24,7 +22,7 @@
     LandingPage, // has to be last
   ]
 
-  TextField.alwaysFocused(id("mainInput"), "Search...", text => {
+  TextField.alwaysFocused(id("input"), "Search...", text => {
     Active.choose(text)
     Active.onTextChange(text)
   })

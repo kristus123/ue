@@ -1,4 +1,4 @@
-const init_electron = require('./init_electron')
+const init_electron = require('./electron/init_electron')
 const subprocess = require('./subprocess')
 
 const { exec } = require('child_process')

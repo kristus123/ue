@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
-const subprocess = require('./subprocess')
+const subprocess = require('../subprocess')
 
 let win;
 
@@ -26,7 +26,7 @@ function init(run) {
         win.webContents.openDevTools({ mode: 'detach' });
 
       
-        win.loadFile('html_base_template.html');
+        win.loadFile('base_template.html');
         win.setSkipTaskbar(true);
       
         win.once('ready-to-show', () => {

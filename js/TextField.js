@@ -30,6 +30,15 @@ class TextField {
         id("always-focused-input").value = ""
     }
 
+    static hide() {
+		document.getElementById('always-focused-input').style.display = 'none';
+    }
+
+    static show() {
+		document.getElementById('always-focused-input').style.display = 'block';
+    }
+
+
     static disableAutoFocus() {
         Global.keyPress = () => {}
     }

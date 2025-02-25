@@ -9,6 +9,7 @@ class SendEmail {
     static onActivation(text) {
         TextField.disableAutoFocus()
         TextField.enableTabbing()
+		TextField.hide()
 
         const subject = addId("subject", input("Subject"))
 
@@ -21,9 +22,7 @@ class SendEmail {
           
           const openBodyEditor = e => {
             if (e.key === 'Tab') {
-              id('subcontent').appendChild(fragment([
-                id("emailBody", textarea("body")),
-              ]))
+              id('subcontent').appendChild(addId("emailBody", textarea("body")))
               subject.removeEventListener('keydown', openBodyEditor)
             }
           }
