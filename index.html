@@ -20,7 +20,8 @@
     new WebsiteSearch("y", q => `youtube.com/results?search_query=${q}`),
     new WebsiteSearch("g", q => `google.no?q=${q}`),
     new WebsiteSearch("p", q => `chatgpt.com?q=${q}`),
-    GlobalSearch,
+    SendEmail,
+    GlobalSearch, // has to be second last
     LandingPage, // has to be last
   ]
 

@@ -38,4 +38,7 @@ init_electron.init((globalShortcut, ipcMain, win) => {
   ipcMain.on('hideWindow', (e) => {
     win.hide()
   })
+  ipcMain.on('sendMail', (e, to, title, body) => {
+    runCommand(`wsl cd ~/meta-repo/repos/mail; venv/bin/python main.py ${to} ${title} ${body}`)
+  })
 })

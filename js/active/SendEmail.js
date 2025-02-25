@@ -21,8 +21,8 @@ class SendEmail {
           
           const openBodyEditor = e => {
             if (e.key === 'Tab') {
-              id('subcontent').appendChild(div([
-                textarea("body"),
+              id('subcontent').appendChild(fragment([
+                id("emailBody", textarea("body")),
               ]))
               subject.removeEventListener('keydown', openBodyEditor)
             }
@@ -47,6 +47,7 @@ class SendEmail {
     }
 
     static onEnter() {
+      console.log("send email")
     }
 
   }
