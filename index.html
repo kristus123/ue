@@ -2,7 +2,11 @@
 <div id="content"></div>
 <div id="subcontent"></div>
 
+<button onclick="startTask()">start</button>
+<button onclick="stopTask()">stop</button>
+
 <script>
+  
   Active.reset = () => {
     removeContentIn(id("content"))
     removeContentIn(id("subcontent"))

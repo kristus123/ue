@@ -1,4 +1,5 @@
 const init_electron = require('./init_electron')
+const subprocess = require('./subprocess')
 
 const { exec } = require('child_process')
 
@@ -29,6 +30,7 @@ init_electron.init((globalShortcut, ipcMain, win) => {
     }
   })
 
+  subprocess.init(ipcMain)
   ipcMain.on('openChrome', (e, app) => {
     runCommand("start chrome " + app)
   })

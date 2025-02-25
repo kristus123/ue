@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
+const subprocess = require('./subprocess')
 
 let win;
 
@@ -13,6 +14,8 @@ function init(run) {
           webPreferences: {
             nodeIntegration: true,
             preload: __dirname + '/preload.js',
+            contextIsolation: true, // Ensures renderer process runs in its own context
+            enableRemoteModule: false // For security reasons, avoid remote module usage
           },
           icon: null,
         });
@@ -20,7 +23,7 @@ function init(run) {
         // Disable menu bar
         win.setMenu(null);
       
-        //win.webContents.openDevTools({ mode: 'detach' });
+        win.webContents.openDevTools({ mode: 'detach' });
 
       
         win.loadFile('html_base_template.html');
@@ -40,6 +43,7 @@ function init(run) {
       
         
         app.whenReady().then(() => {
+          subprocess.whenReady()
           createWindow()
           win.hide();
         });

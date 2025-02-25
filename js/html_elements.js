@@ -48,6 +48,10 @@ function li(name, onEnter) {
         GlobalSearch.onEnter = onEnter // hack, as li is only used by globalsearch
     })
 
+    li.addEventListener("blur", () => {
+        GlobalSearch.onEnter = () => {} // hack, as li is only used by globalsearch
+    })
+    
     return li
 }
 
