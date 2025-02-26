@@ -1,4 +1,3 @@
-
 function hideWindow() {
     setTimeout(() => {
       window.electronAPI.hideWindow();               
@@ -22,9 +21,6 @@ function SendMail(to, title, body) {
     window.electronAPI.sendMail(to, title, body);             
   }, 10);
 }
-
-
-
 
 function openChrome(url) {
     setTimeout(() => {

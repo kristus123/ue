@@ -31,8 +31,8 @@ init_electron.init((globalShortcut, ipcMain, win) => {
   })
 
   subprocess.init(ipcMain)
-  ipcMain.on('openChrome', (e, app) => {
-    runCommand("start chrome " + app)
+  ipcMain.on('openChrome', (e, url) => {
+    runCommand("start chrome " + url)
   })
 
   ipcMain.on('hideWindow', (e) => {
