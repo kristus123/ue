@@ -16,7 +16,7 @@ function stopTask() {
   }, 10);
 }
 
-function SendMail(to, title, body) {
+function sendMail(to, title, body) {
   setTimeout(() => {
     window.electronAPI.sendMail(to, title, body);             
   }, 10);
@@ -26,5 +26,4 @@ function openChrome(url) {
     setTimeout(() => {
       window.electronAPI.openChrome(url);               
     }, 10);
-    hideWindow()
 }

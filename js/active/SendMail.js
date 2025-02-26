@@ -1,4 +1,4 @@
-class SendEmail {
+class SendMail {
 
     static name = "Send Email til pelle@gmail.com"
 
@@ -46,8 +46,7 @@ class SendEmail {
     }
 
     static onEnter() {
-		console.log("send email")
-		sendEmail("krispetter@gmail.com", id('subject').value)
+		sendMail("krispetter@gmail.com", id('subject').value, (id('emailBody') || id('subject')).value)
     }
 
   }

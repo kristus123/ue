@@ -26,6 +26,7 @@ class Active {
                     Active.reset()
                     TextField.clear()
                     this.choose("")
+                    hideWindow()
                 }
                 
                 break
