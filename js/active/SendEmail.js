@@ -47,7 +47,7 @@ class SendEmail {
 
     static onEnter() {
 		console.log("send email")
-		SendEmail("krispetter@gmail.com", "x", "x")
+		SendEmail("krispetter@gmail.com", id('subject').value)
     }
 
   }
