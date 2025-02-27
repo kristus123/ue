@@ -50,7 +50,9 @@ class SendMail {
     }
 
     onEnter() {
-		sendMail(this.email, id('subject').value, (id('emailBody') || id('subject')).value)
+		const body = (id('emailBody') || id('subject')).value
+		console.log(body)
+		// sendMail(this.email, id('subject').value, body)
     }
 
   }
