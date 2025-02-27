@@ -11,7 +11,7 @@ function startsWith(character, str) {
         return false
     }
     else {
-        return str[0].toLowerCase() == character;
+        return str.toLowerCase().substring(0, character.length) == character;
     }
 }
 
