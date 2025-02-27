@@ -40,6 +40,8 @@ init_electron.init((globalShortcut, ipcMain, win) => {
   })
 
   ipcMain.on('sendMail', (e, to, title, body) => {
-    runCommand(`wsl cd ~/meta-repo/repos/mail; venv/bin/python main.py ${to} ${title} ${body}`)
+	  title = title.replace(/(['"])/g, '\\$1')
+	  body = body.replace(/(['"])/g, '\\$1')
+    runCommand(`wsl cd ~/meta-repo/repos/mail; venv/bin/python main.py ${to} "${title}" "${body}"`)
   })
 })
