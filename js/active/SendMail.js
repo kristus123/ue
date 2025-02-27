@@ -1,12 +1,16 @@
 class SendMail {
 
-    static name = "Send Email til pelle@gmail.com"
+	constructor(email, trigger) {
+		this.email = email
+		this.name = "Send Email til " + email
+		this.trigger = trigger
+	}
 
-    static match(text) {
-      return startsWith("e", text)
+    match(text) {
+      return startsWith(this.trigger, text)
     }
 
-    static onActivation(text) {
+    onActivation(text) {
         TextField.disableAutoFocus()
         TextField.enableTabbing()
 		TextField.hide()
@@ -41,12 +45,12 @@ class SendMail {
           })
     }
 
-    static onTextChange(text) {
+    onTextChange(text) {
 
     }
 
-    static onEnter() {
-		sendMail("krispetter@gmail.com", id('subject').value, (id('emailBody') || id('subject')).value)
+    onEnter() {
+		sendMail(this.email, id('subject').value, (id('emailBody') || id('subject')).value)
     }
 
   }
