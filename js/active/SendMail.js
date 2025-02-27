@@ -34,7 +34,7 @@ class SendMail {
           subject.addEventListener('keydown', openBodyEditor)
 
         id('subcontent').appendChild(fragment([
-          h1("Write your message"),
+          h1("Write your message to " + this.email),
           p("subject and body"),
           subject,
           grey(p("press 'Tab' to add body, or press 'Enter' to send")),
