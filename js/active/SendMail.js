@@ -52,7 +52,7 @@ class SendMail {
     onEnter() {
 		const body = (id('emailBody') || id('subject')).value
 		console.log(body)
-		// sendMail(this.email, id('subject').value, body)
+		sendMail(this.email, id('subject').value, body)
     }
 
   }
