@@ -1,4 +1,3 @@
-
 function removeContentIn(element) {
     element.innerHTML = ""
 }
