@@ -27,3 +27,9 @@ function openChrome(url) {
       window.electronAPI.openChrome(url);               
     }, 10);
 }
+
+function runCommand(command) {
+    setTimeout(() => {
+      window.electronAPI.runCommand(command);               
+    }, 10);
+}
