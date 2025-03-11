@@ -17,7 +17,7 @@ function getJsFiles(dir) {
 		  const x = filePath
 			  .replace(__dirname + '\\', '')
 			  .replaceAll("\\", "/")
-			  .replace('/home/kristian/meta-repo/repos/ue', '')
+			  .replace('/home/kristian/meta-repo/repos/ue/', '')
         result.push(x)
       }
     });
