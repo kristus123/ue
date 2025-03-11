@@ -12,6 +12,7 @@ class WebsiteSearch {
     onActivation(text) {
       id('subcontent').appendChild(div([
         grey(p("Website search")),
+        grey(p(this.website)),
       ]))
     }
 

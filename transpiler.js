@@ -27,7 +27,7 @@ function getJsFiles(dir) {
 
 const jsPath = path.join(__dirname, 'js/')
 const jsFiles = getJsFiles(jsPath)
-    .map(file => `\t<script src="${file}"></script>`)
+    .map(file => `\t\t\t<script src="${file}"></script>`)
     .join('\n') 
 
 const index = path.join(__dirname, 'base_template.html');
