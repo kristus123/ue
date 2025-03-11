@@ -14,7 +14,11 @@ function getJsFiles(dir) {
         result = result.concat(getJsFiles(filePath));
       } else if (stat.isFile()) {
         console.log(__dirname)
-        result.push(filePath.replace(__dirname + '\\', '').replaceAll("\\", "/"))
+		  const x = filePath
+			  .replace(__dirname + '\\', '')
+			  .replaceAll("\\", "/")
+			  .replace('/home/kristian/meta-repo/repos/ue', '')
+        result.push(x)
       }
     });
     
