@@ -1,5 +1,6 @@
 const init_electron = require('./electron/init_electron')
 const subprocess = require('./subprocess')
+const transpiler = require('./transpiler')
 
 const { exec } = require('child_process')
 
@@ -18,6 +19,8 @@ function runCommand(command) {
 }
 
 init_electron.init((globalShortcut, ipcMain, win) => {
+	transpiler.run()
+
   globalShortcut.register('Escape', () => {
     win.hide();
   });
@@ -46,6 +49,6 @@ init_electron.init((globalShortcut, ipcMain, win) => {
   ipcMain.on('sendMail', (e, to, title, body) => {
 	  title = title.replace(/(['"])/g, '\\$1')
 	  body = body.replace(/(['"])/g, '\\$1')
-    runCommand(`wsl cd ~/meta-repo/repos/mail; venv/bin/python main.py ${to} "${title}" "${body}"`)
+	runCommand(`wsl cd ~/meta-repo/repos/mail; venv/bin/python main.py ${to} "${title}" "${body}"`)
   })
 })

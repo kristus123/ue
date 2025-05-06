@@ -23,15 +23,15 @@ function init(run) {
         // Disable menu bar
         win.setMenu(null);
       
-        win.webContents.openDevTools({ mode: 'detach' });
+        // win.webContents.openDevTools({ mode: 'detach' });
 
       
         win.loadFile('base_template.html');
         win.setSkipTaskbar(true);
       
-        win.once('ready-to-show', () => {
-          win.show();
-        });
+        // win.once('ready-to-show', () => {
+        //   win.show();
+        // });
       
         win.on('closed', () => {
           win = null;

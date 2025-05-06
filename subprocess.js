@@ -22,8 +22,6 @@ function init(ipcMain) {
         worker.send('stop');
         }
     });
-  
 }
-
 
 module.exports = {whenReady, init}

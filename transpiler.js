@@ -25,17 +25,20 @@ function getJsFiles(dir) {
     return result;
   }
 
-const jsPath = path.join(__dirname, 'js/')
-const jsFiles = getJsFiles(jsPath)
-    .map(file => `\t\t\t<script src="${file}"></script>`)
-    .join('\n') 
 
-const index = path.join(__dirname, 'base_template.html');
+function run() {
+	const jsPath = path.join(__dirname, 'js/')
+	const jsFiles = getJsFiles(jsPath)
+		.map(file => `\t\t\t<script src="${file}"></script>`)
+		.join('\n') 
 
-let data = fs.readFileSync(index, 'utf8');
+	const index = path.join(__dirname, 'base_template.html');
 
-data = data.replace(
-    /<!-- dynamic script imports -->[\s\S]*?<!-- dynamic script imports -->/g,
-    `<!-- dynamic script imports -->\n${jsFiles}\n\t\t\t<!-- dynamic script imports -->`);
+	let data = fs.readFileSync(index, 'utf8');
 
-fs.writeFileSync(index, data, 'utf8');
+	data = data.replace(
+		/<!-- dynamic script imports -->[\s\S]*?<!-- dynamic script imports -->/g,
+		`<!-- dynamic script imports -->\n${jsFiles}\n\t\t\t<!-- dynamic script imports -->`);
+
+	fs.writeFileSync(index, data, 'utf8')
+}

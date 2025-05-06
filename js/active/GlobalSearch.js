@@ -1,8 +1,7 @@
-        
 const results = [
     {
-        name: "bing.no",
-        onEnter: () => openChrome('bing.no')
+		name: "localhost:5000",
+        onEnter: () => openChrome('http://localhost:5000/')
     },
     {
         name: "bang.no",
