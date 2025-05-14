@@ -4,16 +4,8 @@ const results = [
         onEnter: () => openChrome('http://localhost:5000/')
     },
     {
-        name: "bang.no",
-        onEnter: () => openChrome('bing.no')
-    },
-    {
-        name: "bang.no",
-        onEnter: () => openChrome('bing.no')
-    },
-    {
-        name: "swag.no",
-        onEnter: () => openChrome('swag.no')
+		name: "open meta-repo in cmd",
+        onEnter: () => runCommand(`cmd /k "cd /d C:\\Users\\mulig\\Documents\\git\\meta-repo"`)
     },
 ]
 
