@@ -5,7 +5,7 @@ const results = [
     },
     {
 		name: "open meta-repo in cmd",
-        onEnter: () => runCommand(`cmd /k "cd /d C:\\Users\\mulig\\Documents\\git\\meta-repo"`)
+        onEnter: () => runCommand(`start cmd /k "cd /d C:\\Users\\mulig\\Documents\\git\\meta-repo"`)
     },
 ]
 
