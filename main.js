@@ -1,26 +1,25 @@
 const init_electron = require('./electron/init_electron')
 const subprocess = require('./subprocess')
-const transpiler = require('./transpiler')
 
 const { exec } = require('child_process')
 
 function runCommand(command) {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
+      console.log(stdout);
       if (error) {
-        reject(`Error: ${error.message}`)
+        console.log(error);
+        return reject(`Error: ${error.message}`);
       }
       if (stderr) {
-        reject(`stderr: ${stderr}`)
+        console.log(stderr);
+        return reject(`stderr: ${stderr}`);
       }
-      resolve(stdout)
-    })
-  })
+      resolve(stdout);
+    });
+  });
 }
-
 init_electron.init((globalShortcut, ipcMain, win) => {
-	transpiler.run()
-
   globalShortcut.register('Escape', () => {
     win.hide();
   });

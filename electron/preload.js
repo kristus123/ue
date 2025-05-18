@@ -3,7 +3,8 @@ const { contextBridge, ipcRenderer } = require('electron');
 // Expose an API to the renderer process
 contextBridge.exposeInMainWorld('electronAPI', {
   hideWindow: () => ipcRenderer.send('hideWindow'),
-  openChrome: (app) => ipcRenderer.send('openChrome', app),
+  openChrome: (url) => ipcRenderer.send('openChrome', url),
+  runCommand: (command) => ipcRenderer.send('runCommand', command),
 
   sendMail: (to, title, body) => ipcRenderer.send('sendMail', to, title, body),
 
