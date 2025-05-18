@@ -22,11 +22,17 @@ class Active {
                 this.onTextChange = choice.onTextChange
                 
                 Global.enter = () => {
-                    choice.onEnter(TextField.text)
-                    Active.reset()
-                    TextField.clear()
-                    this.choose("")
-                    hideWindow()
+                    const finished = choice.onEnter(TextField.text)
+
+					if (finished == 'wait') { 
+						console.log("wait")
+					}
+					else {
+						Active.reset()
+						TextField.clear()
+						this.choose("")
+						hideWindow()
+					}
                 }
                 
                 break

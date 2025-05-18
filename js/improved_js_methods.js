@@ -28,6 +28,6 @@ function loadContentIn(element, page="index.html") {
             eval(element.querySelector('script').innerText)
         })
         .catch(err => {
-            console.error('Error loading content:', err);
+            console.error(`Error loading content for ${page}: ${err}'`);
         });
 }

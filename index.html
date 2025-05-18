@@ -17,6 +17,7 @@
     new WebsiteSearch("y", q => `youtube.com/results?search_query=${q}`),
     new WebsiteSearch("g", q => `google.no?q=${q}`),
     new WebsiteSearch("p", q => `chatgpt.com?q=${q}`),
+	  new AddWordToEsp('a'),
     new SendMail("747196107@qq.com", "es"),
 	new RunCommands('a', [
 		String.raw`python C:\Users\mulig\Documents\git\meta-repo\repos\esp\add_new_word.py"`,
