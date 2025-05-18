@@ -4,8 +4,16 @@ const results = [
         onEnter: () => openChrome('http://localhost:5000/')
     },
     {
-		name: "open meta-repo in cmd",
-        onEnter: () => runCommand(`start cmd /k "cd /d C:\\Users\\mulig\\Documents\\git\\meta-repo"`)
+		name: "start esp",
+        onEnter: () => runCommand(String.raw`start cmd /k "cd /d C:\Users\mulig\Documents\git\meta-repo\repos\esp & start_esp.bat"`)
+    },
+    {
+		name: "start game engine",
+        onEnter: () => {
+			openChrome('http://localhost:5000/')
+        	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && npm start"`)
+        	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && v"`)
+        }
     },
 ]
 
