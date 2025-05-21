@@ -1,7 +1,7 @@
 const results = [
     {
 		name: "localhost:5000",
-        onEnter: () => openChrome('http://localhost:5000/')
+        onEnter: () => openChromeIncognito('http://localhost:5000/')
     },
     {
 		name: "start esp",
@@ -10,9 +10,9 @@ const results = [
     {
 		name: "start game engine",
         onEnter: () => {
-			openChrome('http://localhost:5000/')
+			openChromeIncognito('http://localhost:5000/')
+        	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && v; exec bash;"`)
         	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && npm start"`)
-        	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && v"`)
         }
     },
     {

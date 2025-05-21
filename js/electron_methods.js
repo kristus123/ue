@@ -28,6 +28,12 @@ function openChrome(url) {
     }, 10);
 }
 
+function openChromeIncognito(url) {
+    setTimeout(() => {
+      window.electronAPI.openChromeIncognito(url);               
+    }, 10);
+}
+
 
 function runCommand(command) {
     setTimeout(() => {

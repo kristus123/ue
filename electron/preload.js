@@ -4,6 +4,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('electronAPI', {
   hideWindow: () => ipcRenderer.send('hideWindow'),
   openChrome: (url) => ipcRenderer.send('openChrome', url),
+  openChromeIncognito: (url) => ipcRenderer.send('openChromeIncognito', url),
   runCommand: (command) => ipcRenderer.send('runCommand', command),
 
   sendMail: (to, title, body) => ipcRenderer.send('sendMail', to, title, body),

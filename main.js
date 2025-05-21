@@ -37,6 +37,10 @@ init_electron.init((globalShortcut, ipcMain, win) => {
     runCommand("start chrome " + url)
   })
 
+  ipcMain.on('openChromeIncognito', (e, url) => {
+    runCommand(`start chrome --incognito "${url}"`)
+  })
+
   ipcMain.on('runCommand', (e, command) => {
     runCommand(command)
   })
