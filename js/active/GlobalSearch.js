@@ -15,6 +15,12 @@ const results = [
         	runCommand(String.raw`start wsl bash -ic "cd ~/meta-repo/repos/game-engine && v"`)
         }
     },
+    {
+		name: "Open meta repo in windows",
+        onEnter: () => {
+			runCommand(String.raw`start cmd /k "cd /d C:\Users\mulig\Documents\git\meta-repo"`)
+        }
+    },
 ]
 
 class GlobalSearch {
