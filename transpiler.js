@@ -12,6 +12,7 @@ function getJsFiles(dir) {
       
       if (stat.isDirectory()) {
         result = result.concat(getJsFiles(filePath));
+
       } else if (stat.isFile()) {
         console.log(__dirname)
 		  const x = filePath

@@ -23,7 +23,7 @@ function init(run) {
         // Disable menu bar
         win.setMenu(null);
       
-        win.webContents.openDevTools({ mode: 'detach' });
+        // win.webContents.openDevTools({ mode: 'detach' });
 
       
         win.loadFile('base_template.html');
